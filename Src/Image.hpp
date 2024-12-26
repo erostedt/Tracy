@@ -1,8 +1,10 @@
 #pragma once
 
-#include <algorithm>
 #include <cstdint>
 #include <vector>
+
+namespace Tracy
+{
 
 struct RGBA32
 {
@@ -15,45 +17,21 @@ struct RGBA32
 class Image
 {
   public:
-    Image(size_t width, size_t height) : m_Width(width), m_Height(height)
-    {
-        m_Pixels.clear();
-        m_Pixels.reserve(width * height);
-        std::fill_n(std::back_inserter(m_Pixels), width * height, RGBA32{0, 0, 0, 255});
-    }
+    Image(size_t width, size_t height);
 
-    inline size_t GetWidth() const
-    {
-        return m_Width;
-    }
+    size_t GetWidth() const;
+    size_t GetHeight() const;
+    size_t GetPixelCount() const;
 
-    inline size_t GetHeight() const
-    {
-        return m_Height;
-    }
+    const RGBA32 *GetData() const;
 
-    inline size_t GetPixelCount() const
-    {
-        return GetWidth() * GetHeight();
-    }
-
-    inline const RGBA32 *GetData() const
-    {
-        return m_Pixels.data();
-    }
-
-    inline RGBA32 &At(size_t x, size_t y)
-    {
-        return m_Pixels[y * m_Width + x];
-    }
-
-    inline RGBA32 &At(size_t i)
-    {
-        return m_Pixels[i];
-    }
+    RGBA32 &At(size_t x, size_t y);
+    RGBA32 &At(size_t i);
 
   private:
     size_t m_Width = 0;
     size_t m_Height = 0;
     std::vector<RGBA32> m_Pixels;
 };
+
+}; // namespace Tracy
