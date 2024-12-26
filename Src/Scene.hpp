@@ -2,7 +2,6 @@
 
 #include "Ray.hpp"
 #include <glm/glm.hpp>
-#include <optional>
 #include <vector>
 
 namespace Tracy
@@ -35,7 +34,7 @@ struct Sphere
     glm::vec3 Position;
     float Radius = 0.5;
 
-    std::optional<float> Intersects(const Ray &ray) const
+    float Intersects(const Ray &ray) const
     {
         glm::vec3 origin = ray.Origin - Position;
 
@@ -45,7 +44,9 @@ struct Sphere
 
         float discriminant = b * b - 4.0f * a * c;
         if (discriminant < 0.0f)
-            return {};
+        {
+            return -1.0f;
+        }
 
         return (-b - glm::sqrt(discriminant)) / (2.0f * a);
     }

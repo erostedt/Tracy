@@ -70,10 +70,10 @@ class Renderer
         {
             const auto &sphere = scene.spheres[i];
             auto distance = sphere.Intersects(ray);
-            if (distance && *distance > 0.0f && *distance < closest_sphere_distance)
+            if (distance > 0.0f && distance < closest_sphere_distance)
             {
                 closest_sphere_index = i;
-                closest_sphere_distance = *distance;
+                closest_sphere_distance = distance;
             }
         }
 
