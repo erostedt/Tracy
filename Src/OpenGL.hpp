@@ -21,17 +21,17 @@ struct OpenGLVersion
     size_t minor_version;
 };
 
-static const OpenGLVersion OPEN_GL_330 = OpenGLVersion{3, 3};
-static const OpenGLVersion OPEN_GL_410 = OpenGLVersion{4, 1};
-static const OpenGLVersion OPEN_GL_460 = OpenGLVersion{4, 6};
+constexpr OpenGLVersion OPEN_GL_330 = OpenGLVersion{3, 3};
+constexpr OpenGLVersion OPEN_GL_410 = OpenGLVersion{4, 1};
+constexpr OpenGLVersion OPEN_GL_460 = OpenGLVersion{4, 6};
 
-static inline void GLClearError()
+inline void GLClearError()
 {
     while (glGetError() != GL_NO_ERROR)
         ;
 }
 
-static inline void LogGLError(const char *stmt, const char *fname, int line)
+inline void LogGLError(const char *stmt, const char *fname, int line)
 {
     GLenum err = glGetError();
     if (err != GL_NO_ERROR)
@@ -41,7 +41,7 @@ static inline void LogGLError(const char *stmt, const char *fname, int line)
     }
 }
 
-static inline void LogAllGLErrors()
+inline void LogAllGLErrors()
 {
     while (true)
     {
