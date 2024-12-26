@@ -1,5 +1,6 @@
+#include "OpenGL.hpp"
 
-#include <glm/glm.hpp>
+#include "Shader.hpp"
 
 #include <fstream>
 #include <iostream>
@@ -7,8 +8,7 @@
 #include <stdexcept>
 #include <string>
 
-#include "OpenGL.hpp"
-#include "Shader.hpp"
+#include <glm/glm.hpp>
 
 namespace Tracy
 {

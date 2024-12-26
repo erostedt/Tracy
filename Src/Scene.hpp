@@ -1,8 +1,10 @@
 #pragma once
 
-#include "Ray.hpp"
-#include <glm/glm.hpp>
 #include <vector>
+
+#include <glm/glm.hpp>
+
+#include "Ray.hpp"
 
 namespace Tracy
 {

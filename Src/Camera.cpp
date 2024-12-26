@@ -1,17 +1,8 @@
-#include <glm/glm.hpp>
-
-#include <glm/ext/matrix_clip_space.hpp>
-#include <glm/ext/matrix_transform.hpp>
-#include <glm/ext/quaternion_transform.hpp>
-
 #include "Camera.hpp"
 
-#include "glm/detail/type_quat.hpp"
-#include "glm/ext/quaternion_trigonometric.hpp"
-#include "glm/fwd.hpp"
-#include "glm/matrix.hpp"
-#include "glm/trigonometric.hpp"
-#include "imgui.h"
+#include <glm/detail/type_quat.hpp>
+#include <glm/ext/quaternion_trigonometric.hpp>
+#include <imgui.h>
 
 namespace Tracy
 {

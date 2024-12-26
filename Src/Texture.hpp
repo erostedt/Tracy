@@ -1,10 +1,10 @@
 #pragma once
+#include "OpenGL.hpp"
 
 #include <cassert>
 #include <cstdint>
 
 #include "Image.hpp"
-#include "OpenGL.hpp"
 
 namespace Tracy
 {

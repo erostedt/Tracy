@@ -3,6 +3,7 @@
 
 #include <array>
 #include <cstddef>
+
 #include <glm/glm.hpp>
 
 namespace Tracy

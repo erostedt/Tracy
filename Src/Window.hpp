@@ -1,16 +1,16 @@
 #pragma once
-
 #include "OpenGL.hpp"
 
-#include <glm/glm.hpp>
 #include <iostream>
 #include <memory>
 
+#include <glfw3.h>
+#include <glm/glm.hpp>
+#include <imgui.h>
+#include <imgui_impl_glfw.h>
+#include <imgui_impl_opengl3.h>
+
 #include "Size.hpp"
-#include "glfw3.h"
-#include "imgui.h"
-#include "imgui_impl_glfw.h"
-#include "imgui_impl_opengl3.h"
 
 static void GLFWErrorCallback(int error, const char *description)
 {

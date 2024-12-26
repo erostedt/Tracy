@@ -1,5 +1,6 @@
-#include "Camera.hpp"
 #include "OpenGL.hpp"
+
+#include "Camera.hpp"
 #include "Renderer.hpp"
 #include "Scene.hpp"
 #include "Shader.hpp"
