@@ -57,8 +57,8 @@ struct Sphere
     {
         HitPayload payload;
         payload.HitDistance = distance;
-        payload.WorldPosition = ray.Origin + ray.Direction * distance;
-        payload.WorldNormal = glm::normalize(ray.Origin - Position + ray.Direction * distance);
+        payload.WorldPosition = ray.At(distance);
+        payload.WorldNormal = glm::normalize(payload.WorldPosition - Position);
         return payload;
     }
 };
