@@ -24,9 +24,9 @@ int main()
     Renderer renderer;
     std::vector<Material> materials = {{{1.0f, 0.0f, 0.0f}}, {{0.0f, 1.0f, 0.0f}}, {{0.0f, 0.0f, 1.0f}}};
     std::vector<Sphere> spheres = {
-        {{-1.0f, 0.0f, -5.0f}},
-        {{1.0f, 0.0f, -5.0f}},
-        {{1.6f, 0.0f, -6.0f}},
+        {{-1.0f, 0.0f, -5.0f}, 0.5f},
+        {{1.0f, 0.0f, -5.0f}, 0.5f},
+        {{1.6f, 0.0f, -6.0f}, 0.5f},
     };
 
     Scene scene = {spheres, materials};

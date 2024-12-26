@@ -31,7 +31,7 @@ static glm::vec4 TraceRay(const Ray &ray, const Scene &scene)
     for (size_t i = 0; i < scene.spheres.size(); ++i)
     {
         const auto &sphere = scene.spheres[i];
-        auto distance = sphere.Intersects(ray);
+        auto distance = sphere.IntersectsAt(ray);
         if (distance > 0.0f && distance < closest_sphere_distance)
         {
             closest_sphere_index = i;
