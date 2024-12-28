@@ -28,10 +28,10 @@ static glm::vec4 TraceRay(const Ray &ray, const Scene &scene)
 {
     size_t closest_sphere_index = std::numeric_limits<size_t>::max();
     float closest_sphere_distance = std::numeric_limits<float>::infinity();
-    for (size_t i = 0; i < scene.spheres.size(); ++i)
+    for (size_t i = 0; i < scene.objects.size(); ++i)
     {
-        const auto &sphere = scene.spheres[i];
-        auto distance = sphere.IntersectsAt(ray);
+        const auto &object = scene.objects[i];
+        auto distance = object->IntersectsAt(ray);
         if (distance > 0.0f && distance < closest_sphere_distance)
         {
             closest_sphere_index = i;

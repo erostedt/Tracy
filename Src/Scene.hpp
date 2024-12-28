@@ -1,10 +1,11 @@
 #pragma once
 
+#include <memory>
 #include <vector>
 
 #include <glm/glm.hpp>
 
-#include "Sphere.hpp"
+#include "HittableObject.hpp"
 
 namespace Tracy
 {
@@ -16,7 +17,7 @@ struct Material
 
 struct Scene
 {
-    std::vector<Sphere> spheres;
+    std::vector<std::shared_ptr<HittableObject>> objects;
     std::vector<Material> materials;
 };
 

@@ -1,11 +1,15 @@
 #include "OpenGL.hpp"
 
+#include <cstdlib>
+#include <memory>
+
 #include "Camera.hpp"
+#include "HittableObject.hpp"
 #include "Renderer.hpp"
 #include "Scene.hpp"
 #include "Shader.hpp"
+#include "Sphere.hpp"
 #include "Window.hpp"
-#include <cstdlib>
 
 using namespace Tracy;
 
@@ -16,20 +20,20 @@ int main()
 {
     auto window = Window::Create("Tracy", WIDTH, HEIGHT);
     auto camera = ProjectionCamera(60, WIDTH, HEIGHT, 0.01f, 100.0f);
-    auto shader = CreateShader("../Shaders/vertex.vert", "../Shaders/fragment.frag");
+    const auto shader = CreateShader("../Shaders/vertex.vert", "../Shaders/fragment.frag");
 
     GL_CHECK(glUseProgram(shader));
     GL_CHECK(glUniform1i(glGetUniformLocation(shader, "texture1"), 0));
 
     Renderer renderer;
     std::vector<Material> materials = {{{1.0f, 0.0f, 0.0f}}, {{0.0f, 1.0f, 0.0f}}, {{0.0f, 0.0f, 1.0f}}};
-    std::vector<Sphere> spheres = {
-        {{-1.0f, 0.0f, -5.0f}, 0.5f},
-        {{1.0f, 0.0f, -5.0f}, 0.5f},
-        {{1.6f, 0.0f, -6.0f}, 0.5f},
+    std::vector<std::shared_ptr<HittableObject>> objects = {
+        std::make_shared<Sphere>(glm::vec3{-1.0f, 0.0f, -5.0f}, 0.5f),
+        std::make_shared<Sphere>(glm::vec3{1.0f, 0.0f, -5.0f}, 0.5f),
+        std::make_shared<Sphere>(glm::vec3{1.6f, 0.0f, -6.0f}, 0.5f),
     };
 
-    Scene scene = {spheres, materials};
+    const Scene scene = {objects, materials};
     while (window->Show())
     {
         const auto frame = window->NewFrame();
