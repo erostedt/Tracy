@@ -6,14 +6,10 @@
 #include <glm/glm.hpp>
 
 #include "HittableObject.hpp"
+#include "Material.hpp"
 
 namespace Tracy
 {
-
-struct Material
-{
-    glm::vec3 Albedo;
-};
 
 struct Scene
 {
